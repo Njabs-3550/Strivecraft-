@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Threadline — Manufacturing overview</title>
-  <link rel="stylesheet" href="theme.css">
-  <link rel="stylesheet" href="styles.css">
-  <script src="https://cdn.tailwindcss.com"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Threadline — Manufacturing overview</title>
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  /* Force sidebar closed on mobile until opened */
+  @media (max-width: 1023px) {
+    #sidebar { display: none !important; }
+    #sidebar.open { display: flex !important; }
+  }
+</style>
 </head>
-
 <body>
+  <button id="menu-button" class="menu-toggle fixed left-4 top-4 z-30 rounded-[var(--radius)] bg-[var(--color-primary)] px-4 py-3 text-sm font-bold text-[var(--color-primary-contrast)] shadow-lg lg:hidden" aria-label="Open menu">☰ Menu</button>
+
   <div class="app-shell flex">
     <aside id="sidebar" class="sidebar flex w-64 shrink-0 flex-col bg-[var(--color-surface)] px-5 py-6 lg:relative lg:flex">
       <button id="close-menu" type="button" class="menu-close mb-5 self-end rounded-[var(--radius)] border border-black/10 px-3 py-2 text-sm font-bold lg:hidden" aria-label="Close menu">Close ×</button>
+
       <div class="mb-10 flex items-center gap-3 px-2">
         <div class="flex h-10 w-10 items-center justify-center rounded-[var(--radius)] bg-[var(--color-primary)] text-lg font-bold text-[var(--color-primary-contrast)]">T</div>
         <div>
@@ -23,10 +31,10 @@
       </div>
       <p class="mb-3 px-3 text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[var(--color-muted)]">Workspace</p>
       <nav class="space-y-1">
-        <a class="sidebar-link active" href="index.html"><span>▦</span> Overview</a>
-        <a class="sidebar-link" href="production.html"><span>◌</span> Production</a>
-        <a class="sidebar-link" href="inventory.html"><span>◇</span> Inventory</a>
-        <a class="sidebar-link" href="orders.html"><span>□</span> Orders</a>
+        <a class="sidebar-link active" href="index.html">▦ Overview</a>
+        <a class="sidebar-link" href="production.html">◌ Production</a>
+        <a class="sidebar-link" href="inventory.html">◇ Inventory</a>
+        <a class="sidebar-link" href="orders.html">□ Orders</a>
       </nav>
       <div class="mt-auto rounded-[var(--radius)] bg-[#f3ece4] p-4">
         <p class="mb-1 text-sm font-bold">Need a hand?</p>
@@ -34,10 +42,10 @@
         <button class="w-full rounded-[var(--radius)] bg-[var(--color-surface)] px-3 py-2 text-xs font-bold text-[var(--color-primary)]">Open support</button>
       </div>
     </aside>
+
     <main class="min-w-0 flex-1">
       <header class="header-with-menu flex items-center justify-between border-b border-black/5 bg-[var(--color-surface)] px-5 py-4 sm:px-8">
         <div class="flex items-center gap-3">
-          <button id="menu-button" class="menu-toggle rounded-[var(--radius)] border border-black/10 px-3 py-2 text-sm font-bold lg:hidden" aria-label="Open menu">☰ Menu</button>
           <div>
             <p class="mb-1 text-xs text-[var(--color-muted)]">Monday, 14 October 2024</p>
             <h1 class="heading-font mb-0 text-2xl font-bold sm:text-3xl">Good morning, Maya</h1>
@@ -48,14 +56,17 @@
           <div class="flex h-10 w-10 items-center justify-center rounded-full bg-[#dec9b7] font-bold">MC</div>
         </div>
       </header>
+
       <div class="mx-auto max-w-[1500px] px-5 py-7 sm:px-8 lg:px-10">
         <section class="mb-7 flex flex-col justify-between gap-5 md:flex-row md:items-end">
           <div>
             <p class="mb-2 text-sm font-semibold text-[var(--color-primary)]">Studio snapshot</p>
             <h2 class="heading-font mb-2 text-3xl font-bold sm:text-4xl">Your floor at a glance.</h2>
             <p class="mb-0 max-w-xl text-sm leading-6 text-[var(--color-muted)]">Keep every stitch moving smoothly, from first cut to final dispatch.</p>
-          </div><button class="rounded-[var(--radius)] bg-[var(--color-primary)] px-5 py-3 text-sm font-bold text-[var(--color-primary-contrast)] shadow-lg shadow-orange-900/10">+ New production run</button>
+          </div>
+          <button class="rounded-[var(--radius)] bg-[var(--color-primary)] px-5 py-3 text-sm font-bold text-[var(--color-primary-contrast)] shadow-lg shadow-orange-900/10">+ New production run</button>
         </section>
+
         <section class="mb-7 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           <div class="metric-card p-5">
             <div class="mb-5 flex items-center justify-between"><span class="text-sm text-[var(--color-muted)]">Active orders</span><span class="rounded-full bg-[#f8e6dd] px-2 py-1 text-xs font-bold text-[var(--color-primary)]">+12%</span></div>
@@ -78,13 +89,15 @@
             <p class="mb-0 text-xs text-[var(--color-muted)]">Needs attention this week</p>
           </div>
         </section>
+
         <section class="grid gap-6 xl:grid-cols-[1.5fr_1fr]">
           <div class="panel p-5 sm:p-6">
             <div class="mb-6 flex items-center justify-between">
               <div>
                 <h3 class="heading-font mb-1 text-xl font-bold">Production output</h3>
                 <p class="mb-0 text-sm text-[var(--color-muted)]">Units completed across all lines</p>
-              </div><select class="rounded-xl border border-black/10 bg-[var(--color-surface)] px-3 py-2 text-xs font-semibold">
+              </div>
+              <select class="rounded-xl border border-black/10 bg-[var(--color-surface)] px-3 py-2 text-xs font-semibold">
                 <option>Last 7 days</option>
                 <option>Last 30 days</option>
               </select>
@@ -96,26 +109,21 @@
               <div>
                 <h3 class="heading-font mb-1 text-xl font-bold">Live production</h3>
                 <p class="mb-0 text-sm text-[var(--color-muted)]">Current floor status</p>
-              </div><a class="text-xs font-bold text-[var(--color-primary)]" href="production.html">View all →</a>
+              </div>
+              <a class="text-xs font-bold text-[var(--color-primary)]" href="production.html">View all →</a>
             </div>
             <div class="space-y-5">
               <div>
                 <div class="mb-2 flex justify-between text-sm"><span class="font-semibold">Summer linen set</span><span class="text-[var(--color-muted)]">82%</span></div>
-                <div class="h-2 overflow-hidden rounded-full bg-[#eee8e1]">
-                  <div class="h-full w-[82%] rounded-full bg-[var(--color-primary)]"></div>
-                </div>
+                <div class="h-2 overflow-hidden rounded-full bg-[#eee8e1]"><div class="h-full w-[82%] rounded-full bg-[var(--color-primary)]"></div></div>
               </div>
               <div>
                 <div class="mb-2 flex justify-between text-sm"><span class="font-semibold">Core cotton tee</span><span class="text-[var(--color-muted)]">64%</span></div>
-                <div class="h-2 overflow-hidden rounded-full bg-[#eee8e1]">
-                  <div class="h-full w-[64%] rounded-full bg-[#d49a61]"></div>
-                </div>
+                <div class="h-2 overflow-hidden rounded-full bg-[#eee8e1]"><div class="h-full w-[64%] rounded-full bg-[#d49a61]"></div></div>
               </div>
               <div>
                 <div class="mb-2 flex justify-between text-sm"><span class="font-semibold">Alba wide-leg trouser</span><span class="text-[var(--color-muted)]">41%</span></div>
-                <div class="h-2 overflow-hidden rounded-full bg-[#eee8e1]">
-                  <div class="h-full w-[41%] rounded-full bg-[#879b91]"></div>
-                </div>
+                <div class="h-2 overflow-hidden rounded-full bg-[#eee8e1]"><div class="h-full w-[41%] rounded-full bg-[#879b91]"></div></div>
               </div>
             </div>
             <div class="mt-7 rounded-[var(--radius)] bg-[#faf4ee] p-4">
@@ -125,12 +133,14 @@
             </div>
           </div>
         </section>
+
         <section class="panel mt-6 overflow-hidden">
           <div class="flex items-center justify-between p-5 sm:p-6">
             <div>
               <h3 class="heading-font mb-1 text-xl font-bold">Recent orders</h3>
               <p class="mb-0 text-sm text-[var(--color-muted)]">The latest movement in your order book</p>
-            </div><a class="text-xs font-bold text-[var(--color-primary)]" href="orders.html">See all orders →</a>
+            </div>
+            <a class="text-xs font-bold text-[var(--color-primary)]" href="orders.html">See all orders →</a>
           </div>
           <div class="overflow-x-auto">
             <table class="w-full min-w-[650px] text-left text-sm">
@@ -144,27 +154,9 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="data-row">
-                  <td class="px-6 py-4 font-bold">#TL-2084</td>
-                  <td class="px-6 py-4">North & Finch</td>
-                  <td class="px-6 py-4">640</td>
-                  <td class="px-6 py-4">18 Oct 2024</td>
-                  <td class="px-6 py-4"><span class="status-pill bg-[#e4f0e4] text-[#4f7955]">● In production</span></td>
-                </tr>
-                <tr class="data-row">
-                  <td class="px-6 py-4 font-bold">#TL-2083</td>
-                  <td class="px-6 py-4">The Edit Store</td>
-                  <td class="px-6 py-4">1,200</td>
-                  <td class="px-6 py-4">22 Oct 2024</td>
-                  <td class="px-6 py-4"><span class="status-pill bg-[#f8e6dd] text-[var(--color-primary)]">● Cutting</span></td>
-                </tr>
-                <tr class="data-row">
-                  <td class="px-6 py-4 font-bold">#TL-2081</td>
-                  <td class="px-6 py-4">Morrow Collective</td>
-                  <td class="px-6 py-4">320</td>
-                  <td class="px-6 py-4">16 Oct 2024</td>
-                  <td class="px-6 py-4"><span class="status-pill bg-[#ede9e3] text-[var(--color-muted)]">● Quality check</span></td>
-                </tr>
+                <tr class="data-row"><td class="px-6 py-4 font-bold">#TL-2084</td><td class="px-6 py-4">North & Finch</td><td class="px-6 py-4">640</td><td class="px-6 py-4">18 Oct 2024</td><td class="px-6 py-4"><span class="status-pill bg-[#e4f0e4] text-[#4f7955]">● In production</span></td></tr>
+                <tr class="data-row"><td class="px-6 py-4 font-bold">#TL-2083</td><td class="px-6 py-4">The Edit Store</td><td class="px-6 py-4">1,200</td><td class="px-6 py-4">22 Oct 2024</td><td class="px-6 py-4"><span class="status-pill bg-[#f8e6dd] text-[var(--color-primary)]">● Cutting</span></td></tr>
+                <tr class="data-row"><td class="px-6 py-4 font-bold">#TL-2081</td><td class="px-6 py-4">Morrow Collective</td><td class="px-6 py-4">320</td><td class="px-6 py-4">16 Oct 2024</td><td class="px-6 py-4"><span class="status-pill bg-[#ede9e3] text-[var(--color-muted)]">● Quality check</span></td></tr>
               </tbody>
             </table>
           </div>
@@ -172,55 +164,48 @@
       </div>
     </main>
   </div>
+
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
   <script>
-    const chart = new ApexCharts(document.querySelector('#production-chart'), {
-      chart: { type: 'area', height: 255, toolbar: { show: false }, fontFamily: 'Inter, sans-serif' },
-      series: [{ name: 'Completed units', data: [520, 760, 610, 890, 740, 1010, 860] }],
-      xaxis: {
-        categories: ['Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', 'Mon'],
-        labels: { style: { colors: '#77716b' } },
-        axisBorder: { show: false },
-        axisTicks: { show: false }
-      },
-      yaxis: { labels: { style: { colors: '#77716b' } } },
-      colors: ['#c65d3a'],
-      stroke: { curve: 'smooth', width: 3 },
-      fill: { type: 'gradient', gradient: { shadeIntensity: 1, opacityFrom: 0.28, opacityTo: 0.03 } },
-      dataLabels: { enabled: false },
-      grid: { borderColor: '#eee8e1', strokeDashArray: 4 },
-      tooltip: { theme: 'light' }
-    });
-    chart.render();
+    (function () {
+      var sidebar = document.getElementById('sidebar');
+      var menuButton = document.getElementById('menu-button');
+      var closeButton = document.getElementById('close-menu');
+
+      function openMenu(e) {
+        if (e) e.preventDefault();
+        sidebar.classList.add('open');
+      }
+      function closeMenu(e) {
+        if (e) e.preventDefault();
+        sidebar.classList.remove('open');
+      }
+
+      if (menuButton) {
+        menuButton.addEventListener('click', openMenu);
+        menuButton.addEventListener('touchend', openMenu, { passive: false });
+      }
+      if (closeButton) {
+        closeButton.addEventListener('click', closeMenu);
+        closeButton.addEventListener('touchend', closeMenu, { passive: false });
+      }
+    })();
+
+    if (document.querySelector('#production-chart')) {
+      var chart = new ApexCharts(document.querySelector('#production-chart'), {
+        chart: { type: 'area', height: 255, toolbar: { show: false }, fontFamily: 'Inter, sans-serif' },
+        series: [{ name: 'Completed units', data: [520, 760, 610, 890, 740, 1010, 860] }],
+        xaxis: { categories: ['Tue','Wed','Thu','Fri','Sat','Sun','Mon'], labels: { style: { colors: '#77716b' } }, axisBorder: { show: false }, axisTicks: { show: false } },
+        yaxis: { labels: { style: { colors: '#77716b' } } },
+        colors: ['#c65d3a'],
+        stroke: { curve: 'smooth', width: 3 },
+        fill: { type: 'gradient', gradient: { shadeIntensity: 1, opacityFrom: 0.28, opacityTo: 0.03 } },
+        dataLabels: { enabled: false },
+        grid: { borderColor: '#eee8e1', strokeDashArray: 4 },
+        tooltip: { theme: 'light' }
+      });
+      chart.render();
+    }
   </script>
-  <script>
-  (function () {
-    var sidebar = document.getElementById('sidebar');
-    var menuButton = document.getElementById('menu-button');
-    var closeButton = document.getElementById('close-menu');
-    if (!sidebar) return;
-
-    var backdrop = document.createElement('div');
-    backdrop.style.cssText = 'display:none;position:fixed;inset:0;z-index:40;background:rgba(37,35,33,0.34)';
-    document.body.appendChild(backdrop);
-
-    function openMenu(e) {
-      if (e) e.preventDefault();
-      sidebar.classList.add('mobile-menu-open');
-      backdrop.style.display = 'block';
-      document.body.style.overflow = 'hidden';
-    }
-    function closeMenu(e) {
-      if (e) e.preventDefault();
-      sidebar.classList.remove('mobile-menu-open');
-      backdrop.style.display = 'none';
-      document.body.style.overflow = '';
-    }
-
-    if (menuButton) menuButton.addEventListener('click', openMenu);
-    if (closeButton) closeButton.addEventListener('click', closeMenu);
-    backdrop.addEventListener('click', closeMenu);
-  })();
-</script>
 </body>
 </html>
