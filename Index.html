@@ -5,15 +5,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Threadline — Manufacturing overview</title>
-  <link rel="stylesheet" href="/theme.css">
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="styles.css">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
   <div class="app-shell flex">
     <aside id="sidebar" class="sidebar flex w-64 shrink-0 flex-col bg-[var(--color-surface)] px-5 py-6 lg:relative lg:flex">
-      <button id="close-menu" type="button" class="menu-close mb-5 self-end rounded-[var(--radius)] border border-black/10 px-3 py-2 text-sm font-bold lg:hidden" aria-label="Close menu" onclick="document.getElementById('sidebar').classList.remove('mobile-menu-open')">Close ×</button>
+      <button id="close-menu" type="button" class="menu-close mb-5 self-end rounded-[var(--radius)] border border-black/10 px-3 py-2 text-sm font-bold lg:hidden" aria-label="Close menu">Close ×</button>
       <div class="mb-10 flex items-center gap-3 px-2">
         <div class="flex h-10 w-10 items-center justify-center rounded-[var(--radius)] bg-[var(--color-primary)] text-lg font-bold text-[var(--color-primary-contrast)]">T</div>
         <div>
@@ -23,10 +23,10 @@
       </div>
       <p class="mb-3 px-3 text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[var(--color-muted)]">Workspace</p>
       <nav class="space-y-1">
-        <a class="sidebar-link active" href="/"><span>▦</span> Overview</a>
-        <a class="sidebar-link" href="/production"><span>◌</span> Production</a>
-        <a class="sidebar-link" href="/inventory"><span>◇</span> Inventory</a>
-        <a class="sidebar-link" href="/orders"><span>□</span> Orders</a>
+        <a class="sidebar-link active" href="index.html"><span>▦</span> Overview</a>
+        <a class="sidebar-link" href="production.html"><span>◌</span> Production</a>
+        <a class="sidebar-link" href="inventory.html"><span>◇</span> Inventory</a>
+        <a class="sidebar-link" href="orders.html"><span>□</span> Orders</a>
       </nav>
       <div class="mt-auto rounded-[var(--radius)] bg-[#f3ece4] p-4">
         <p class="mb-1 text-sm font-bold">Need a hand?</p>
@@ -35,7 +35,7 @@
       </div>
     </aside>
     <main class="min-w-0 flex-1">
-      <header class="flex items-center justify-between border-b border-black/5 bg-[var(--color-surface)] px-5 py-4 sm:px-8">
+      <header class="header-with-menu flex items-center justify-between border-b border-black/5 bg-[var(--color-surface)] px-5 py-4 sm:px-8">
         <div class="flex items-center gap-3">
           <button id="menu-button" class="menu-toggle rounded-[var(--radius)] border border-black/10 px-3 py-2 text-sm font-bold lg:hidden" aria-label="Open menu">☰ Menu</button>
           <div>
@@ -43,7 +43,8 @@
             <h1 class="heading-font mb-0 text-2xl font-bold sm:text-3xl">Good morning, Maya</h1>
           </div>
         </div>
-        <div class="flex items-center gap-3"><button class="relative rounded-full border border-black/10 p-2.5">♧<span class="absolute right-1 top-1 h-2 w-2 rounded-full bg-[var(--color-primary)]"></span></button>
+        <div class="flex items-center gap-3">
+          <button class="relative rounded-full border border-black/10 p-2.5">♧<span class="absolute right-1 top-1 h-2 w-2 rounded-full bg-[var(--color-primary)]"></span></button>
           <div class="flex h-10 w-10 items-center justify-center rounded-full bg-[#dec9b7] font-bold">MC</div>
         </div>
       </header>
@@ -95,7 +96,7 @@
               <div>
                 <h3 class="heading-font mb-1 text-xl font-bold">Live production</h3>
                 <p class="mb-0 text-sm text-[var(--color-muted)]">Current floor status</p>
-              </div><a class="text-xs font-bold text-[var(--color-primary)]" href="/production">View all →</a>
+              </div><a class="text-xs font-bold text-[var(--color-primary)]" href="production.html">View all →</a>
             </div>
             <div class="space-y-5">
               <div>
@@ -129,7 +130,7 @@
             <div>
               <h3 class="heading-font mb-1 text-xl font-bold">Recent orders</h3>
               <p class="mb-0 text-sm text-[var(--color-muted)]">The latest movement in your order book</p>
-            </div><a class="text-xs font-bold text-[var(--color-primary)]" href="/orders">See all orders →</a>
+            </div><a class="text-xs font-bold text-[var(--color-primary)]" href="orders.html">See all orders →</a>
           </div>
           <div class="overflow-x-auto">
             <table class="w-full min-w-[650px] text-left text-sm">
@@ -174,72 +175,25 @@
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
   <script>
     const chart = new ApexCharts(document.querySelector('#production-chart'), {
-      chart: {
-        type: 'area',
-        height: 255,
-        toolbar: {
-          show: false
-        },
-        fontFamily: 'Inter, sans-serif'
-      },
-      series: [{
-        name: 'Completed units',
-        data: [520, 760, 610, 890, 740, 1010, 860]
-      }],
+      chart: { type: 'area', height: 255, toolbar: { show: false }, fontFamily: 'Inter, sans-serif' },
+      series: [{ name: 'Completed units', data: [520, 760, 610, 890, 740, 1010, 860] }],
       xaxis: {
         categories: ['Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', 'Mon'],
-        labels: {
-          style: {
-            colors: '#77716b'
-          }
-        },
-        axisBorder: {
-          show: false
-        },
-        axisTicks: {
-          show: false
-        }
+        labels: { style: { colors: '#77716b' } },
+        axisBorder: { show: false },
+        axisTicks: { show: false }
       },
-      yaxis: {
-        labels: {
-          style: {
-            colors: '#77716b'
-          }
-        }
-      },
+      yaxis: { labels: { style: { colors: '#77716b' } } },
       colors: ['#c65d3a'],
-      stroke: {
-        curve: 'smooth',
-        width: 3
-      },
-      fill: {
-        type: 'gradient',
-        gradient: {
-          shadeIntensity: 1,
-          opacityFrom: 0.28,
-          opacityTo: 0.03
-        }
-      },
-      dataLabels: {
-        enabled: false
-      },
-      grid: {
-        borderColor: '#eee8e1',
-        strokeDashArray: 4
-      },
-      tooltip: {
-        theme: 'light'
-      }
+      stroke: { curve: 'smooth', width: 3 },
+      fill: { type: 'gradient', gradient: { shadeIntensity: 1, opacityFrom: 0.28, opacityTo: 0.03 } },
+      dataLabels: { enabled: false },
+      grid: { borderColor: '#eee8e1', strokeDashArray: 4 },
+      tooltip: { theme: 'light' }
     });
     chart.render();
-    const sidebar = document.querySelector('#sidebar');
-    const menuButton = document.querySelector('#menu-button');
-    const closeButton = document.querySelector('#close-menu');
-    menuButton.addEventListener('click', () => sidebar.classList.add('mobile-menu-open'));
-    closeButton.addEventListener('click', () => sidebar.classList.remove('mobile-menu-open'));
-
   </script>
-  <script src="/menu.js"></script>
+  <script src="menu.js"></script>
 </body>
 
 </html>
