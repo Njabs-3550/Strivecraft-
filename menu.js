@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+documdocument.addEventListener('DOMContentLoaded', () => {
   const sidebar = document.querySelector('#sidebar');
   const menuButton = document.querySelector('#menu-button');
   const closeButton = document.querySelector('#close-menu');
@@ -32,17 +32,11 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   menuButton?.addEventListener('click', openMenu);
-  menuButton?.addEventListener('touchend', openMenu, {
-    passive: false
-  });
+  menuButton?.addEventListener('touchend', openMenu, { passive: false });
   closeButton?.addEventListener('click', closeMenu);
-  closeButton?.addEventListener('touchend', closeMenu, {
-    passive: false
-  });
+  closeButton?.addEventListener('touchend', closeMenu, { passive: false });
   backdrop.addEventListener('click', closeMenu);
-  backdrop.addEventListener('touchend', closeMenu, {
-    passive: false
-  });
+  backdrop.addEventListener('touchend', closeMenu, { passive: false });
 
   sidebar.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', closeMenu);
