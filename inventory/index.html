@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Threadline — Inventory</title>
-  <link rel="stylesheet" href="/theme.css">
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="styles.css">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -14,7 +14,7 @@
   <button id="menu-button" class="menu-toggle fixed left-4 top-4 z-30 rounded-[var(--radius)] bg-[var(--color-primary)] px-4 py-3 text-sm font-bold text-[var(--color-primary-contrast)] shadow-lg lg:hidden" aria-label="Open menu">☰ Menu</button>
   <div class="app-shell flex">
     <aside id="sidebar" class="sidebar flex w-64 shrink-0 flex-col bg-[var(--color-surface)] px-5 py-6 lg:relative lg:flex">
-      <button id="close-menu" type="button" class="menu-close mb-5 self-end rounded-[var(--radius)] border border-black/10 px-3 py-2 text-sm font-bold lg:hidden" aria-label="Close menu" onclick="document.getElementById('sidebar').classList.remove('mobile-menu-open')">Close ×</button>
+      <button id="close-menu" type="button" class="menu-close mb-5 self-end rounded-[var(--radius)] border border-black/10 px-3 py-2 text-sm font-bold lg:hidden" aria-label="Close menu">Close ×</button>
       <div class="mb-10 flex items-center gap-3 px-2">
         <div class="flex h-10 w-10 items-center justify-center rounded-[var(--radius)] bg-[var(--color-primary)] text-lg font-bold text-[var(--color-primary-contrast)]">T</div>
         <div>
@@ -23,7 +23,12 @@
         </div>
       </div>
       <p class="mb-3 px-3 text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[var(--color-muted)]">Workspace</p>
-      <nav class="space-y-1"><a class="sidebar-link" href="/">▦ Overview</a><a class="sidebar-link" href="/production">◌ Production</a><a class="sidebar-link active" href="/inventory">◇ Inventory</a><a class="sidebar-link" href="/orders">□ Orders</a></nav>
+      <nav class="space-y-1">
+        <a class="sidebar-link" href="index.html">▦ Overview</a>
+        <a class="sidebar-link" href="production.html">◌ Production</a>
+        <a class="sidebar-link active" href="inventory.html">◇ Inventory</a>
+        <a class="sidebar-link" href="orders.html">□ Orders</a>
+      </nav>
     </aside>
     <main class="min-w-0 flex-1">
       <header class="border-b border-black/5 bg-[var(--color-surface)] px-5 py-5 sm:px-8">
@@ -102,14 +107,7 @@
       </div>
     </main>
   </div>
-<script>
-    const menuButton = document.querySelector('#menu-button');
-    const closeButton = document.querySelector('#close-menu');
-    const sidebar = document.querySelector('#sidebar');
-    menuButton.addEventListener('click', () => sidebar.classList.add('mobile-menu-open'));
-    closeButton.addEventListener('click', () => sidebar.classList.remove('mobile-menu-open'));
-  </script>
-  <script src="/menu.js"></script>
+  <script src="menu.js"></script>
 </body>
 
 </html>
