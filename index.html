@@ -193,7 +193,34 @@
     });
     chart.render();
   </script>
-  <script src="menu.js"></script>
-</body>
+  <script>
+  (function () {
+    var sidebar = document.getElementById('sidebar');
+    var menuButton = document.getElementById('menu-button');
+    var closeButton = document.getElementById('close-menu');
+    if (!sidebar) return;
 
+    var backdrop = document.createElement('div');
+    backdrop.style.cssText = 'display:none;position:fixed;inset:0;z-index:40;background:rgba(37,35,33,0.34)';
+    document.body.appendChild(backdrop);
+
+    function openMenu(e) {
+      if (e) e.preventDefault();
+      sidebar.classList.add('mobile-menu-open');
+      backdrop.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu(e) {
+      if (e) e.preventDefault();
+      sidebar.classList.remove('mobile-menu-open');
+      backdrop.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    if (menuButton) menuButton.addEventListener('click', openMenu);
+    if (closeButton) closeButton.addEventListener('click', closeMenu);
+    backdrop.addEventListener('click', closeMenu);
+  })();
+</script>
+</body>
 </html>
