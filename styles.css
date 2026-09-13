@@ -54,6 +54,16 @@
   display: none;
 }
 
+.menu-toggle {
+  cursor: pointer;
+}
+
+.menu-close {
+  color: var(--color-primary);
+  background: var(--color-surface);
+  cursor: pointer;
+}
+
 @media (max-width: 1023px) {
   .menu-backdrop-visible {
     display: block;
@@ -74,29 +84,17 @@
   .sidebar.mobile-menu-open {
     z-index: 50;
   }
-}
 
-.menu-toggle {
-  cursor: pointer;
-}
-
-.menu-close {
-  color: var(--color-primary);
-  background: var(--color-surface);
-  cursor: pointer;
-}
-
-@media (max-width: 1023px) {
   main {
     width: 100%;
   }
 
-  main > header {
+  /* Only pad the header when the menu button is NOT inside it
+     (Overview page has its own header layout with the button inline). */
+  main > header:not(.header-with-menu) {
     padding-left: 6rem;
   }
-}
 
-@media (max-width: 1023px) {
   .sidebar {
     display: none;
     position: fixed;
