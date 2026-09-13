@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Threadline — Inventory</title>
-  <link rel="stylesheet" href="theme.css">
-  <link rel="stylesheet" href="styles.css">
-  <script src="https://cdn.tailwindcss.com"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Threadline — Inventory</title>
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  @media (max-width: 1023px) {
+    #sidebar { display: none !important; }
+    #sidebar.open { display: flex !important; }
+  }
+</style>
 </head>
-
 <body>
   <button id="menu-button" class="menu-toggle fixed left-4 top-4 z-30 rounded-[var(--radius)] bg-[var(--color-primary)] px-4 py-3 text-sm font-bold text-[var(--color-primary-contrast)] shadow-lg lg:hidden" aria-label="Open menu">☰ Menu</button>
+
   <div class="app-shell flex">
     <aside id="sidebar" class="sidebar flex w-64 shrink-0 flex-col bg-[var(--color-surface)] px-5 py-6 lg:relative lg:flex">
       <button id="close-menu" type="button" class="menu-close mb-5 self-end rounded-[var(--radius)] border border-black/10 px-3 py-2 text-sm font-bold lg:hidden" aria-label="Close menu">Close ×</button>
+
       <div class="mb-10 flex items-center gap-3 px-2">
         <div class="flex h-10 w-10 items-center justify-center rounded-[var(--radius)] bg-[var(--color-primary)] text-lg font-bold text-[var(--color-primary-contrast)]">T</div>
         <div>
@@ -30,35 +36,32 @@
         <a class="sidebar-link" href="orders.html">□ Orders</a>
       </nav>
     </aside>
+
     <main class="min-w-0 flex-1">
       <header class="border-b border-black/5 bg-[var(--color-surface)] px-5 py-5 sm:px-8">
         <p class="mb-1 text-xs font-semibold text-[var(--color-primary)]">Workspace / Inventory</p>
         <h1 class="heading-font mb-0 text-3xl font-bold">Materials & inventory</h1>
       </header>
+
       <div class="mx-auto max-w-[1400px] px-5 py-8 sm:px-8 lg:px-10">
         <section class="mb-7 flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>
             <h2 class="heading-font mb-2 text-3xl font-bold">Stock overview</h2>
             <p class="mb-0 text-sm text-[var(--color-muted)]">Know what is ready, reserved, and running low.</p>
-          </div><button class="rounded-[var(--radius)] bg-[var(--color-primary)] px-5 py-3 text-sm font-bold text-[var(--color-primary-contrast)]">+ Add material</button>
+          </div>
+          <button class="rounded-[var(--radius)] bg-[var(--color-primary)] px-5 py-3 text-sm font-bold text-[var(--color-primary-contrast)]">+ Add material</button>
         </section>
+
         <div class="mb-7 grid gap-4 sm:grid-cols-3">
-          <div class="metric-card p-5">
-            <p class="mb-2 text-sm text-[var(--color-muted)]">Total materials</p>
-            <p class="mb-0 text-3xl font-bold">246</p>
-          </div>
-          <div class="metric-card p-5">
-            <p class="mb-2 text-sm text-[var(--color-muted)]">Stock value</p>
-            <p class="mb-0 text-3xl font-bold">$84,290</p>
-          </div>
-          <div class="metric-card p-5">
-            <p class="mb-2 text-sm text-[var(--color-muted)]">Reorder needed</p>
-            <p class="mb-0 text-3xl font-bold text-[var(--color-primary)]">06</p>
-          </div>
+          <div class="metric-card p-5"><p class="mb-2 text-sm text-[var(--color-muted)]">Total materials</p><p class="mb-0 text-3xl font-bold">246</p></div>
+          <div class="metric-card p-5"><p class="mb-2 text-sm text-[var(--color-muted)]">Stock value</p><p class="mb-0 text-3xl font-bold">$84,290</p></div>
+          <div class="metric-card p-5"><p class="mb-2 text-sm text-[var(--color-muted)]">Reorder needed</p><p class="mb-0 text-3xl font-bold text-[var(--color-primary)]">06</p></div>
         </div>
+
         <div class="panel overflow-hidden">
           <div class="flex flex-wrap items-center justify-between gap-4 border-b border-black/5 p-5">
-            <h3 class="heading-font mb-0 text-xl font-bold">Material catalog</h3><input class="rounded-xl border border-black/10 px-4 py-2 text-sm outline-none" placeholder="Search materials">
+            <h3 class="heading-font mb-0 text-xl font-bold">Material catalog</h3>
+            <input class="rounded-xl border border-black/10 px-4 py-2 text-sm outline-none" placeholder="Search materials">
           </div>
           <div class="overflow-x-auto">
             <table class="w-full min-w-[750px] text-left text-sm">
@@ -72,34 +75,10 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="data-row">
-                  <td class="px-6 py-5 font-bold">Organic cotton · Natural</td>
-                  <td class="px-6 py-5">Fabric</td>
-                  <td class="px-6 py-5">1,840 m</td>
-                  <td class="px-6 py-5">960 m</td>
-                  <td class="px-6 py-5"><span class="status-pill bg-[#e4f0e4] text-[#4f7955]">Healthy</span></td>
-                </tr>
-                <tr class="data-row">
-                  <td class="px-6 py-5 font-bold">European linen · Oat</td>
-                  <td class="px-6 py-5">Fabric</td>
-                  <td class="px-6 py-5">420 m</td>
-                  <td class="px-6 py-5">380 m</td>
-                  <td class="px-6 py-5"><span class="status-pill bg-[#fff0d8] text-[#9b6b25]">Low stock</span></td>
-                </tr>
-                <tr class="data-row">
-                  <td class="px-6 py-5 font-bold">Recycled corozo buttons</td>
-                  <td class="px-6 py-5">Trims</td>
-                  <td class="px-6 py-5">8,240 pcs</td>
-                  <td class="px-6 py-5">3,200 pcs</td>
-                  <td class="px-6 py-5"><span class="status-pill bg-[#e4f0e4] text-[#4f7955]">Healthy</span></td>
-                </tr>
-                <tr class="data-row">
-                  <td class="px-6 py-5 font-bold">YKK recycled zip · 20 cm</td>
-                  <td class="px-6 py-5">Trims</td>
-                  <td class="px-6 py-5">180 pcs</td>
-                  <td class="px-6 py-5">160 pcs</td>
-                  <td class="px-6 py-5"><span class="status-pill bg-[#f8e6dd] text-[var(--color-primary)]">Reorder</span></td>
-                </tr>
+                <tr class="data-row"><td class="px-6 py-5 font-bold">Organic cotton · Natural</td><td class="px-6 py-5">Fabric</td><td class="px-6 py-5">1,840 m</td><td class="px-6 py-5">960 m</td><td class="px-6 py-5"><span class="status-pill bg-[#e4f0e4] text-[#4f7955]">Healthy</span></td></tr>
+                <tr class="data-row"><td class="px-6 py-5 font-bold">European linen · Oat</td><td class="px-6 py-5">Fabric</td><td class="px-6 py-5">420 m</td><td class="px-6 py-5">380 m</td><td class="px-6 py-5"><span class="status-pill bg-[#fff0d8] text-[#9b6b25]">Low stock</span></td></tr>
+                <tr class="data-row"><td class="px-6 py-5 font-bold">Recycled corozo buttons</td><td class="px-6 py-5">Trims</td><td class="px-6 py-5">8,240 pcs</td><td class="px-6 py-5">3,200 pcs</td><td class="px-6 py-5"><span class="status-pill bg-[#e4f0e4] text-[#4f7955]">Healthy</span></td></tr>
+                <tr class="data-row"><td class="px-6 py-5 font-bold">YKK recycled zip · 20 cm</td><td class="px-6 py-5">Trims</td><td class="px-6 py-5">180 pcs</td><td class="px-6 py-5">160 pcs</td><td class="px-6 py-5"><span class="status-pill bg-[#f8e6dd] text-[var(--color-primary)]">Reorder</span></td></tr>
               </tbody>
             </table>
           </div>
@@ -107,7 +86,17 @@
       </div>
     </main>
   </div>
-  <script src="menu.js"></script>
-</body>
 
+  <script>
+    (function () {
+      var sidebar = document.getElementById('sidebar');
+      var menuButton = document.getElementById('menu-button');
+      var closeButton = document.getElementById('close-menu');
+      function openMenu(e) { if (e) e.preventDefault(); sidebar.classList.add('open'); }
+      function closeMenu(e) { if (e) e.preventDefault(); sidebar.classList.remove('open'); }
+      if (menuButton) { menuButton.addEventListener('click', openMenu); menuButton.addEventListener('touchend', openMenu, { passive: false }); }
+      if (closeButton) { closeButton.addEventListener('click', closeMenu); closeButton.addEventListener('touchend', closeMenu, { passive: false }); }
+    })();
+  </script>
+</body>
 </html>
